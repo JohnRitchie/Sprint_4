@@ -1,5 +1,3 @@
-import time
-
 from page_objects.base_page import BasePage
 from locators.order_page_locators import OrderPageLocators
 
@@ -69,9 +67,6 @@ class OrderPage(BasePage):
         self.click_element(locator)
 
     def get_order_number(self):
-        # время для формирования номера заказа
-        time.sleep(3)
-
         text = self.browser.find_element(*OrderPageLocators.ORDER_TEXT).text
         order_number = text.split()[2].strip('.')
         return order_number

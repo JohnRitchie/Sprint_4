@@ -30,8 +30,14 @@ class BasePage:
     def click_scooter_logo(self):
         self.click_element(BasePageLocators.SCOOTER_LOGO)
 
-    def click_ya_logo(self):
+    def _click_ya_logo(self):
         self.click_element(BasePageLocators.YA_LOGO)
 
     def fill_input(self, field, value):
         self.browser.find_element(*field).send_keys(value)
+
+    def open_ya_page(self):
+        self._click_ya_logo()
+        self.browser.switch_to.window(self.browser.window_handles[1])
+        self.is_element_present(BasePageLocators.YA_SEARCH_BUTTON)
+
