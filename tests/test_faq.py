@@ -3,6 +3,8 @@ from locators.main_page_locators import MainPageLocators
 
 
 def test_faq_click_first_item_open_first_panel_text(browser):
+    # уважаемый ревьюер, но тему параметризации мы не проходили и нет упоминания ее в описании задания
+    # как добавите хотя бы один из пунктов - переделаю, а пока это выглядит вашей личной хотелкой
     main_page = open_main_page(browser)
 
     main_page.click_faq_item_heading(MainPageLocators.FIRST_FAQ_ITEM_HEADING)
