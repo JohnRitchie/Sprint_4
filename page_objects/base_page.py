@@ -45,6 +45,8 @@ class BasePage:
         self.browser.switch_to.window(self.browser.window_handles[1])
         self.is_element_present(BasePageLocators.YA_SEARCH_BUTTON)
 
+    def wait_text(self, element, text):
+        WebDriverWait(self.browser, 6).until(expected_conditions.text_to_be_present_in_element(element, text))
+
     def get_text(self, element):
         return self.browser.find_element(*element).text
-
