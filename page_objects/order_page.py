@@ -64,7 +64,7 @@ class OrderPage(BasePage):
         self.click_element(locator)
 
     def get_order_number(self):
-        text = self.browser.find_element(*OrderPageLocators.ORDER_TEXT).text
+        text = self.get_text(OrderPageLocators.ORDER_TEXT)
         order_number = text.split()[2].strip('.')
         return order_number
     

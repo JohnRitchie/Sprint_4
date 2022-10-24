@@ -45,3 +45,6 @@ class BasePage:
         self.browser.switch_to.window(self.browser.window_handles[1])
         self.is_element_present(BasePageLocators.YA_SEARCH_BUTTON)
 
+    def get_text(self, element):
+        return self.browser.find_element(*element).text
+
