@@ -2,7 +2,7 @@ from page_objects.order_page import OrderPage
 from links import ORDER_PAGE_LINK, STATUS_PAGE_LINK
 
 
-def test_order_order_with_one_method_success(browser):
+def test_order_order_with_first_right_dataset_success(browser):
     order_page = OrderPage(browser, ORDER_PAGE_LINK)
     order_page.open()
 
@@ -12,27 +12,11 @@ def test_order_order_with_one_method_success(browser):
     assert browser.current_url == STATUS_PAGE_LINK.format(order_number), 'Status page is not open!'
 
 
-def test_order_order_with_all_methods_success(browser):
+def test_order_order_with_second_right_dataset_success(browser):
     order_page = OrderPage(browser, ORDER_PAGE_LINK)
     order_page.open()
 
-    order_page.fill_input_name('Иван')
-    order_page.fill_input_surname('Иванов')
-    order_page.fill_input_address('Москва, Ленина 1, кв. 1')
-    order_page.fill_input_phone('+70123456789')
-    order_page.choose_station('Сокольники')
-
-    order_page.click_button_next()
-
-    order_page.choose_date('10 число этого месяца')
-    order_page.choose_rental_period('пятеро суток')
-    order_page.choose_color('чёрный жемчуг')
-
-    order_page.click_button_order()
-    order_page.click_button_confirm()
-
-    order_number = order_page.get_order_number()
-    order_page.click_button_status()
+    order_number = order_page.order_scooter('Иван', 'Иванов', 'Москва, Ленина 1, кв. 1', '+70123456789',
+                                            'Сокольники', '10 число этого месяца', 'пятеро суток', 'чёрный жемчуг')
 
     assert browser.current_url == STATUS_PAGE_LINK.format(order_number), 'Status page is not open!'
-
