@@ -1,9 +1,11 @@
-from helpers import open_order_page
-from links import STATUS_PAGE_LINK
+from page_objects.order_page import OrderPage
+from links import ORDER_PAGE_LINK, STATUS_PAGE_LINK
 
 
 def test_order_order_with_one_method_success(browser):
-    order_page = open_order_page(browser)
+    order_page = OrderPage(browser, ORDER_PAGE_LINK)
+    order_page.open()
+
     order_number = order_page.order_scooter('Петр', 'Петров', 'Москва, Кирова 2, кв. 2', '+79876543210',
                                             'Охотный Ряд', '30 число этого месяца', 'трое суток', 'серая безысходность')
 
@@ -11,7 +13,9 @@ def test_order_order_with_one_method_success(browser):
 
 
 def test_order_order_with_all_methods_success(browser):
-    order_page = open_order_page(browser)
+    order_page = OrderPage(browser, ORDER_PAGE_LINK)
+    order_page.open()
+
     order_page.fill_input_name('Иван')
     order_page.fill_input_surname('Иванов')
     order_page.fill_input_address('Москва, Ленина 1, кв. 1')

@@ -3,9 +3,6 @@ from locators.main_page_locators import MainPageLocators
 
 
 class MainPage(BasePage):
-    def is_faq_section_present(self):
-        return self.is_element_present(MainPageLocators.FAQ_SECTION)
-
     def is_faq_item_panel_not_hidden(self, item_panel):
         not_hidden_item_panel = self.browser.find_element(*MainPageLocators.NOT_HIDDEN_FAQ_ITEM_PANEL)
         clicked_item_panel = self.browser.find_element(*item_panel)

@@ -6,7 +6,6 @@ class MainPageLocators(BasePageLocators):
     ORDER_BUTTON_UP = (By.XPATH, './/button[@class="Button_Button__ra12g"]')
     ORDER_BUTTON_DOWN = (By.XPATH, './/div[@class="Home_FinishButton__1_cWm"]/button')
 
-    FAQ_SECTION = (By.CLASS_NAME, 'accordion')
     NOT_HIDDEN_FAQ_ITEM_PANEL = (By.XPATH, './/div[@class="accordion__panel" and not(@hidden)]')
 
     FIRST_FAQ_ITEM_HEADING = (By.ID, 'accordion__heading-0')

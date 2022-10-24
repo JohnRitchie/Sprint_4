@@ -12,9 +12,6 @@ class OrderPage(BasePage):
     def _click_timeline(self):
         self.browser.find_element(*OrderPageLocators.INPUT_TIMELINE).click()
 
-    def is_next_button_present(self):
-        return self.is_element_present(OrderPageLocators.NEXT_BUTTON)
-
     def fill_input_name(self, name):
         self.fill_input(OrderPageLocators.INPUT_NAME, name)
 
