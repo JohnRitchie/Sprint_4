@@ -22,11 +22,7 @@ class BasePage:
         return True
 
     def click_element(self, element):
-        element = self.browser.find_element(*element)
-        # уважаемый ревьюер, обращение к первому элементу (arguments[0]) здесь идет потому, что это так работает
-        # перечитайте, пожалуйста 8 урок ("Перейти к элементу")
-        self.browser.execute_script("arguments[0].scrollIntoView();", element)
-        element.click()
+        self.browser.execute_script("arguments[0].click();", self.browser.find_element(*element))
 
     def click_button(self, button):
         self.click_element(button)
