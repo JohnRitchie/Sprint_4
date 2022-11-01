@@ -7,7 +7,8 @@ def test_order_order_with_first_right_dataset_success(browser):
     order_page.open()
 
     order_number = order_page.order_scooter('Петр', 'Петров', 'Москва, Кирова 2, кв. 2', '+79876543210',
-                                            'Охотный Ряд', '30 число этого месяца', 'трое суток', 'серая безысходность')
+                                            'Черкизовская', '30 число этого месяца',
+                                            'трое суток', 'серая безысходность')
 
     assert browser.current_url == STATUS_PAGE_LINK.format(order_number), 'Status page is not open!'
 
