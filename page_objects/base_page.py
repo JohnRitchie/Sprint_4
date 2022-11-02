@@ -14,7 +14,7 @@ class BasePage:
     def open(self):
         self.browser.get(self.url)
 
-    def is_element_present(self, element, timeout=6):
+    def is_element_present(self, element, timeout=25):
         try:
             WebDriverWait(self.browser, timeout).until(expected_conditions.presence_of_element_located(element))
         except TimeoutException:

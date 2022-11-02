@@ -67,7 +67,7 @@ class OrderPage(BasePage):
 
     def get_order_number(self):
         # номер заказа формируется не сразу
-        self.browser.implicitly_wait(5)
+        self.browser.implicitly_wait(15)
 
         text = self.get_text(OrderPageLocators.ORDER_TEXT)
         order_number = text.split()[2].strip('.')
