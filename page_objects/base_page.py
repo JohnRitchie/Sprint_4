@@ -23,8 +23,10 @@ class BasePage:
 
     def click_element(self, element):
         element = self.browser.find_element(*element)
-        self.browser.execute_script("arguments[0].scrollIntoView();", element)
-        element.click()
+        # уважаемый ревьюер, клик сделан так, чтобы избежать ошибки ElementClickInterceptedError
+        # с такой реализацией я эту ошибку не получаю, с любой другой, что я нашел - получаю
+        # если вы знаете, как эту ошибку обойти иначе, напишите, пожалуйста об этом в реью
+        self.browser.execute_script("arguments[0].click();", element)
 
     def click_button(self, button):
         self.click_element(button)
