@@ -46,4 +46,6 @@ class BasePage:
         self.is_element_present(BasePageLocators.YA_SEARCH_BUTTON)
 
     def get_text(self, element):
+        # ответ в faq открывается не сразу
+        self.browser.implicitly_wait(50)
         return self.browser.find_element(*element).text

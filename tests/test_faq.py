@@ -46,11 +46,6 @@ def test_faq_click_item_open_panel_text(browser, item_heading, expected_text, pa
     main_page.click_faq_item_heading(item_heading)
 
     expected_text = expected_text
-
-    panel = panel
-    if main_page.is_element_present(panel):
-        actual_text = main_page.get_text(panel)
-    else:
-        actual_text = ''
+    actual_text = main_page.get_text(panel)
 
     assert actual_text == expected_text, 'FAQ item panel is hidden!'
